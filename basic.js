@@ -24,16 +24,16 @@ document.body.appendChild(list);
 list.className='sidenavLinks';
 //---------------------------------------
 let listLinkOne = document.createElement('li') // list items, New Image
-listLinkOne.textContent="New image"; 
+listLinkOne.textContent="New image";
 list.appendChild(listLinkOne);
 listLinkOne.style.padding='20px';
 listLinkOne.addEventListener("click", newImagePage); // make text clickable and calls function
 
 function newImagePage() { // opens a "new Image" content page/screen
   document.getElementById("demo").innerHTML = "New Image";
- submitForm (); // annropar formuläret
- onclick();
- 
+ // submitForm (); // annropar formuläret
+ // onclick();
+
 }
 
 let listLinkTwo = document.createElement('li') // list items, Images
@@ -45,29 +45,29 @@ listLinkTwo.addEventListener("click", imagesPage); // make text clickable and ca
 
 function imagesPage() { // opens a new "Image" content page/screen
   document.getElementById("demo").innerHTML = "Images";
-  
+
  /**
   * @description contains img, cow
   * @returns image is displayed on click
   */
-  function imageContainer(e) {     
-    
-    var cow = document.createElement('img'); 
-    cow.setAttribute('src','https://cdn.pixabay.com/photo/2014/08/30/18/19/cow-431729_1280.jpg') 
+  function imageContainer(e) {
+
+    var cow = document.createElement('img');
+    cow.setAttribute('src','https://cdn.pixabay.com/photo/2014/08/30/18/19/cow-431729_1280.jpg')
     cow.className='img1'
     document.body.appendChild(cow); // sätt denna div i body
     listLinkThree.addEventListener('click',onclick);// remove image on click
     listLinkOne.addEventListener('click',onclick);//remove image on click
-    
+
     function onclick(event){
-    
+
       cow.removeAttribute('src')
     }
-    
+
     }
-    
+
     imageContainer();
-   
+
 }
 
 let listLinkThree = document.createElement('li') // list items, Galleries
@@ -78,9 +78,9 @@ listLinkThree.addEventListener("click", galleriesPage); // make text clickable a
 
 function galleriesPage() { // opens a new "galleries" content page/screen
   document.getElementById("demo").innerHTML = "Galleries";
-  
 
-  
+
+
 }
 
 
@@ -94,12 +94,12 @@ form.action="results.html";
 form.method="GET";
 document.body.appendChild(form);
 
-//Create the div 
+//Create the div
 var div1 = document.createElement("div");
-div1.id="aDiv"; 
+div1.id="aDiv";
 document.body.appendChild(div1);
 
-//Place the input field 
+//Place the input field
 var input = document.createElement("input");
 input.type = "url";
 input.id = "urlinput";
@@ -108,12 +108,12 @@ input.value = "";
 document.getElementById("myForm").appendChild(input);
 var url = document.getElementById("urlinput").value;
 
-//Add submit button 
+//Add submit button
 var inputbutton = document.createElement("input");
 inputbutton.id = "submitbutton";
 inputbutton.type = "submit";
 inputbutton.value = "submit";
-document.getElementById("myForm").appendChild(inputbutton);  
+document.getElementById("myForm").appendChild(inputbutton);
 inputbutton.addEventListener("click", function() {});
 
 }
@@ -130,45 +130,45 @@ function loginBtn(){
   logInButton.id="loginbtn"
   document.body.appendChild(logInButton);
   logInButton.addEventListener('click', login, false)
-  
+
 
   /**
    * @description contains the entire login form
-   *  
+   *
    */
   function login(){
-    
+
     var loginDiv = document.createElement('div');
-    
+
     var logInForm = document.createElement('form');
      logInForm.id="loginform";
      logInForm.method ='Get';
-     logInForm.action='#'    
+     logInForm.action='#'
      logInForm.addEventListener('submit',function(event){
-  
-      
+
+
        event.preventDefault(); //prevents page reloading
        var feedback ="";
 
-       var email = document.getElementById('email').value; 
-      
+       var email = document.getElementById('email').value;
+
       // indexof is a method. here i want to find out the position of @
-        var atpos = email.indexOf('@'); 
-      
+        var atpos = email.indexOf('@');
+
       // lastindexof means the last dot if there are more
-        var atdot = email.lastIndexOf('.'); 
-      
+        var atdot = email.lastIndexOf('.');
+
         var password = document.getElementById('password').value;
         var plength = password.length;
 
         //this is a password for a pretend user to see if it works
-        var user1Password="aaaaaaa"; 
-      
-        
+        var user1Password="aaaaaaa";
+
+
         if(atpos < 1 || atdot < 1){
           feedback +=" <strong style='color:#C00'>The e-mail address is not correct it is missing an @ or a dot. <br></strong>" ;
           document.getElementById('email').style.borderColor='red';
-          
+
         }
         else if (email != atpos < 1 || atdot < 1) {
           document.getElementById('email').style.borderColor='lightskyblue';
@@ -187,37 +187,37 @@ function loginBtn(){
           feedback +=" <strong style='color:#C00'>The user does not exist.</strong>" ;
           console.log("hej");
         }
-       
+
         else{
           document.getElementById('email').style.borderColor='lightskyblue';
           document.getElementById('password').style.borderColor='lightskyblue';
-        
+
 
         }
-      
+
         document.getElementById('feedback').innerHTML = feedback;
          return false;
-     
-       
+
+
      })
-    
+
     // input field email
     var emailInput = document.createElement('input');
     emailInput.id='email';
-    emailInput.setAttribute("type", "text"); 
+    emailInput.setAttribute("type", "text");
     emailInput.placeholder='E-mail';
-    
-    
-    
+
+
+
     var lineBreak = document.createElement('br');
-    
+
     // input field password
     var passwordInput = document.createElement('input');
     passwordInput.id='password';
     passwordInput.placeholder='password'
     passwordInput.setAttribute("type", "password");
- 
-    
+
+
     // creates the submit button inside the form
     var loginSubmitButton = document.createElement('button');
     loginSubmitButton.id='loginSubmitBtn';
@@ -228,49 +228,29 @@ function loginBtn(){
     var createAccount = document.createElement('p')
     createAccount.id='account'
     createAccount.textContent="Create Account"
-    
+
     let feedBack = document.createElement('p');
     feedBack.id='feedback';
-    
+
     document.body.appendChild(feedBack);
-    
-      
-    document.body.appendChild(loginDiv); // Div 
+
+
+    document.body.appendChild(loginDiv); // Div
     loginDiv.appendChild(logInForm);    // form
     logInForm.appendChild(emailInput); // email input
     logInForm.appendChild(lineBreak);   // line break
     logInForm.appendChild(passwordInput); // password input
     logInForm.appendChild(loginSubmitButton); // submit button
     logInForm.appendChild(createAccount); // text create account
-    
-    
+
+
 
     // makes it possible to press the button several times but it only shows one form
     this.removeEventListener('click',login ,false)
-    
+
     }
-    
+
   }
-  
-  
+
+
    loginBtn();
-  
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
