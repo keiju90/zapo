@@ -30,6 +30,8 @@ document.getElementById("myForm").appendChild(inputbutton);  //This line doesnt 
 //create an empty array
 var imgObj = [];
 
+var index = 0;
+
 function arrList(e){ // create function with an event
 e.preventDefault(); // prevents the page from reloading when clicking on submit
 var values = document.getElementById('urlinput'.value); //get input field value
@@ -40,3 +42,17 @@ console.log(imgObj); // Console log the empty array to see if it works
 var submitButton = document.getElementById('submitbutton'); //get submitbutton
 var submitForm = document.getElementById('myForm'); // get form
 submitButton.addEventListener('click', arrList, false); // when clicking on submit, the arrList function should fire
+//_________________________________
+//display image
+
+function buildImage(){
+   var img = document.createElement('img') //create image element
+   img.src = imgObj[index]; // image source from array above
+   var imgContainer = document.createElement('div'); // create div
+   imgContainer.id="imgCont"; // div id imaCont
+   imgContainer.appendChild(img); // append img to div container
+   document.body.appendChild(imgContainer); // append div to body
+};
+
+//when clicking on images link the function buildImage should be called
+listLinkTwo.addEventListener("click", buildImage);

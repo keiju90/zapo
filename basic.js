@@ -31,8 +31,8 @@ listLinkOne.addEventListener("click", newImagePage); // make text clickable and 
 
 function newImagePage() { // opens a "new Image" content page/screen
   document.getElementById("demo").innerHTML = "New Image";
- submitForm (); // annropar formuläret
- onclick();
+ // submitForm (); // annropar formuläret
+ // onclick();
 
 }
 
