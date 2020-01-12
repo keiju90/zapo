@@ -1,22 +1,18 @@
+var imgObjects = [];
+
 let header1 = document.createElement('header'); // create header
 document.body.appendChild(header1);
-header1.className='header'
+header1.className='header';
 
 let text = document.createElement('h2'); // creat text in header
 text.textContent='Gallery application 2000';
 header1.appendChild(text);
-text.className='h2'
+text.className='h2';
 
 let bar = document.createElement('nav') // create sidebar
 document.body.appendChild(bar);
-bar.className= 'sidenav'
+bar.className= 'sidenav';
 //-----------------------
-let content = document.createElement('h3'); // create header images
-content.id = "demo";
-
-content.textContent='Images'
-document.body.appendChild(content);
-content.className='images'
 
 //-------------------------------
 let list = document.createElement('ul') // create list
@@ -27,95 +23,149 @@ let listLinkOne = document.createElement('li') // list items, New Image
 listLinkOne.textContent="New image";
 list.appendChild(listLinkOne);
 listLinkOne.style.padding='20px';
-listLinkOne.addEventListener("click", newImagePage); // make text clickable and calls function
-
-function newImagePage() { // opens a "new Image" content page/screen
-  document.getElementById("demo").innerHTML = "New Image";
- // submitForm (); // annropar formuläret
- // onclick();
-
-}
+listLinkOne.addEventListener("click", function(){
+  changeScreen('newImage');
+}); // make text clickable and calls function
 
 let listLinkTwo = document.createElement('li') // list items, Images
 listLinkTwo.textContent="Images";
 list.appendChild(listLinkTwo);
 listLinkTwo.style.padding='20px';
 listLinkTwo.style.margin='10px';
-listLinkTwo.addEventListener("click", imagesPage); // make text clickable and calls function
-
-function imagesPage() { // opens a new "Image" content page/screen
-  document.getElementById("demo").innerHTML = "Images";
-
- /**
-  * @description contains img, cow
-  * @returns image is displayed on click
-  */
-  function imageContainer(e) {
-
-    var cow = document.createElement('img');
-    cow.setAttribute('src','https://cdn.pixabay.com/photo/2014/08/30/18/19/cow-431729_1280.jpg')
-    cow.className='img1'
-    document.body.appendChild(cow); // sätt denna div i body
-    listLinkThree.addEventListener('click',onclick);// remove image on click
-    listLinkOne.addEventListener('click',onclick);//remove image on click
-
-    function onclick(event){
-
-      cow.removeAttribute('src')
-    }
-
-    }
-
-    imageContainer();
-
-}
+listLinkTwo.addEventListener("click", function(){
+  changeScreen('images');
+}); // make text clickable and calls function
 
 let listLinkThree = document.createElement('li') // list items, Galleries
 listLinkThree.textContent="Galleries"
 list.appendChild(listLinkThree);
 listLinkThree.style.padding='20px';
-listLinkThree.addEventListener("click", galleriesPage); // make text clickable and calls function
+listLinkThree.addEventListener("click", function(){
+  changeScreen('galleries');
+}); // make text clickable and calls function
+
+
+let contentContainer = document.createElement('div'); // create header images
+contentContainer.style.marginTop = '50px';
+contentContainer.style.marginLeft = '300px';
+contentContainer.style.position = 'absolute';
+contentContainer.id = 'content-container';
+document.body.appendChild(contentContainer);
+
+// code above is basic UI
+
+
+
+function changeScreen(screenType){
+  contentContainer.innerHTML = '';
+
+  if(screenType == 'images'){
+    initImagesPage();
+  } else if(screenType == 'newImage'){
+    newImagePage();
+  } else if(screenType == 'galleries'){
+    galleriesPage();
+  }
+}
+
+function initImagesPage(){
+  let content = document.createElement('h3'); // create content images
+  content.id = "Images";
+  content.className='images';
+  content.innerHTML = 'Images';
+  contentContainer.appendChild(content);
+
+  for(let i = 0; i < imgObjects.length; i++){
+    var imgContainer = document.createElement('div'); // create a div to store images in
+    imgContainer.id="imgCont"; // div id imgCont, to style the div
+
+    var img = document.createElement('img') //create image element
+    img.src = imgObjects[i].url; // image source from array above
+    img.id = "picture";
+    imgContainer.appendChild(img); // append img to div container
+    contentContainer.appendChild(imgContainer); // append div to body
+  }
+}
+
+function newImagePage() { // opens a "new Image" content page/screen
+  let content = document.createElement('h3'); // create content images
+  content.innerHTML = 'New image';
+  contentContainer.appendChild(content); // submitForm (); // annropar formuläret
+
+  createNewImageForm();
+ // onclick();
+}
 
 function galleriesPage() { // opens a new "galleries" content page/screen
-  document.getElementById("demo").innerHTML = "Galleries";
-
-
-
+  let content = document.createElement('h3'); // create content images
+  content.innerHTML = 'Galleries';
+  contentContainer.appendChild(content); // submitForm (); // annropar formuläret
 }
+
+changeScreen('images');
+
+
+
+// function imagesPage() { // opens a new "Image" content page/screen
+//
+//  /**
+//   * @description contains img, cow
+//   * @returns image is displayed on click
+//   */
+//   function imageContainer(e) {
+//
+//     // var cow = document.createElement('img');
+//     // cow.setAttribute('src','https://cdn.pixabay.com/photo/2014/08/30/18/19/cow-431729_1280.jpg')
+//     // cow.className='img1'
+//     // document.body.appendChild(cow); // sätt denna div i body
+//     listLinkThree.addEventListener('click',onclick);// remove image on click
+//     listLinkOne.addEventListener('click',onclick);//remove image on click
+//
+//     function onclick(event){
+//
+//       // cow.removeAttribute('src')
+//     }
+//
+//     }
+//
+//     imageContainer();
+//
+// }
+
+
+
 
 
 
 function submitForm(){
+  //Create the form
+  var form = document.createElement('form');
+  form.id="myForm";
+  form.action="results.html";
+  form.method="GET";
+  document.body.appendChild(form);
 
-//Create the form
-var form = document.createElement('form');
-form.id="myForm";
-form.action="results.html";
-form.method="GET";
-document.body.appendChild(form);
+  //Create the div
+  var div1 = document.createElement("div");
+  div1.id="aDiv";
+  document.body.appendChild(div1);
 
-//Create the div
-var div1 = document.createElement("div");
-div1.id="aDiv";
-document.body.appendChild(div1);
+  //Place the input field
+  var input = document.createElement("input");
+  input.type = "url";
+  input.id = "urlinput";
+  input.placeholder = "Enter URL Here";
+  input.value = "";
+  document.getElementById("myForm").appendChild(input);
+  var url = document.getElementById("urlinput").value;
 
-//Place the input field
-var input = document.createElement("input");
-input.type = "url";
-input.id = "urlinput";
-input.placeholder = "Enter URL Here";
-input.value = "";
-document.getElementById("myForm").appendChild(input);
-var url = document.getElementById("urlinput").value;
-
-//Add submit button
-var inputbutton = document.createElement("input");
-inputbutton.id = "submitbutton";
-inputbutton.type = "submit";
-inputbutton.value = "submit";
-document.getElementById("myForm").appendChild(inputbutton);
-inputbutton.addEventListener("click", function() {});
-
+  //Add submit button
+  var inputbutton = document.createElement("input");
+  inputbutton.id = "submitbutton";
+  inputbutton.type = "submit";
+  inputbutton.value = "submit";
+  document.getElementById("myForm").appendChild(inputbutton);
+  inputbutton.addEventListener("click", function() {});
 }
 
 
