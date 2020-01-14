@@ -116,17 +116,18 @@ input {
   
   }
   #loginform{
-    height: 200px;
-    width: 350px;
+    height: 180px;
+    width: 390px;
     margin-top: 100px;
     margin: 0px auto;
-    width: 390px;
-    height: 140px;
+    /* width: 390px;
+    height: 140px; */
     background-color:white;
     border-bottom: 1px solid #FFA500;
     border-bottom-width: 30px;
     position: relative;
     z-index: 1;
+    
     
     
   }
@@ -138,6 +139,28 @@ input {
    
     
   } 
+  h6#closebButton{
+    color: black;
+    background-color: white;
+    margin-top: -10px;
+    /* margin-left: 15px; */
+    font-weight: bold;
+    float: right;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 10px;
+   
+    /* transition: 0.3s; */
+    
+  }
+
+  #closebButton:hover{
+    color:  lightskyblue;
+
+  }
+  /* #email{
+    margin-top: auto;
+  } */
   #account{
    margin-left: 30px;
    font-size: smaller;
