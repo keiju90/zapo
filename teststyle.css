@@ -1,0 +1,64 @@
+ /* Style the Image Used to Trigger the Modal */
+ #myImg {
+    /*background-color: yellow;*/
+    width: 100%;
+    height: 100%;
+}
+
+  /* The Modal (background) */
+  #modal-background {
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100vh; 
+    overflow: auto; /* to scroll if needed */
+    background-color: rgba(48, 47, 47, 0.9); /* grey w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  /* Size of the image */
+  #modal {
+    position: absolute;   
+    margin: auto;
+    display: block;
+    height: 60vh;
+    width: 900px;
+    min-width: 40%;
+    background-color: black;
+    border: 7px solid white;
+}
+
+  /* Style the closebutton*/
+  #closeBtn{
+    z-index: 1;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 70px;
+    transition: 0.3s;
+}
+ /*The X (closebutton) get light grey when hover*/
+#closeBtn:hover,
+#closeBtn:focus {
+  color: rgb(156, 156, 156);
+}
+  
+  /* Add Animation - Zoom in the image to tell you can click it? */
+ /* #modal{
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
+ 
