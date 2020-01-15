@@ -102,62 +102,6 @@ function galleriesPage() { // opens a new "galleries" content page/screen
 
 changeScreen('images');
 
-// function imagesPage() { // opens a new "Image" content page/screen
-//
-//  /**
-//   * @description contains img, cow
-//   * @returns image is displayed on click
-//   */
-//   function imageContainer(e) {
-//
-//     // var cow = document.createElement('img');
-//     // cow.setAttribute('src','https://cdn.pixabay.com/photo/2014/08/30/18/19/cow-431729_1280.jpg')
-//     // cow.className='img1'
-//     // document.body.appendChild(cow); // sätt denna div i body
-//     listLinkThree.addEventListener('click',onclick);// remove image on click
-//     listLinkOne.addEventListener('click',onclick);//remove image on click
-//
-//     function onclick(event){
-//
-//       // cow.removeAttribute('src')
-//     }
-//
-//     }
-//
-//     imageContainer();
-// }
-
-// function submitForm(){
-//   //Create the form
-//   var form = document.createElement('form');
-//   form.id="myForm";
-//   form.action="results.html";
-//   form.method="GET";
-//   document.body.appendChild(form);
-//
-//   //Create the div
-//   var div1 = document.createElement("div");
-//   div1.id="aDiv";
-//   document.body.appendChild(div1);
-//
-//   //Place the input field
-//   var input = document.createElement("input");
-//   input.type = "url";
-//   input.id = "urlinput";
-//   input.placeholder = "Enter URL Here";
-//   input.value = "";
-//   document.getElementById("myForm").appendChild(input);
-//   var url = document.getElementById("urlinput").value;
-//
-//   //Add submit button
-//   var inputbutton = document.createElement("input");
-//   inputbutton.id = "submitbutton";
-//   inputbutton.type = "submit";
-//   inputbutton.value = "submit";
-//   document.getElementById("myForm").appendChild(inputbutton);
-//   inputbutton.addEventListener("click", function() {});
-// }
-
 // login button
 function loginBtn(){
   // create the login button
