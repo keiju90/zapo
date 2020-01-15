@@ -28,9 +28,8 @@ function createNewImageForm(){
   inputbutton.value = "submit";
   document.getElementById("myForm").appendChild(inputbutton);  //This line doesnt work
 
-  //create an empty array
+  //create an empty array for images
   imgObjects = [];
-  // var index = 0;
 
   function arrList(e){ // create function with an event
     e.preventDefault(); // prevents the page from reloading when clicking on submit

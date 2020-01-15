@@ -1,4 +1,4 @@
-var imgObjects = [];
+var imgObjects = []; //empty array for images
 
 let header1 = document.createElement('header'); // create header
 document.body.appendChild(header1);
@@ -24,7 +24,7 @@ listLinkOne.textContent="New image";
 list.appendChild(listLinkOne);
 listLinkOne.style.padding='20px';
 listLinkOne.addEventListener("click", function(){
-  changeScreen('newImage');
+  changeScreen('newImage');//calls the function changeScreen
 }); // make text clickable and calls function
 
 let listLinkTwo = document.createElement('li') // list items, Images
@@ -33,7 +33,7 @@ list.appendChild(listLinkTwo);
 listLinkTwo.style.padding='20px';
 listLinkTwo.style.margin='10px';
 listLinkTwo.addEventListener("click", function(){
-  changeScreen('images');
+  changeScreen('images'); //calls the function changeScreen
 }); // make text clickable and calls function
 
 let listLinkThree = document.createElement('li') // list items, Galleries
@@ -41,7 +41,7 @@ listLinkThree.textContent="Galleries"
 list.appendChild(listLinkThree);
 listLinkThree.style.padding='20px';
 listLinkThree.addEventListener("click", function(){
-  changeScreen('galleries');
+  changeScreen('galleries'); //calls the function changeScreen
 }); // make text clickable and calls function
 
 
@@ -56,11 +56,11 @@ document.body.appendChild(contentContainer);
 
 
 
-function changeScreen(screenType){
+function changeScreen(screenType){ // change screens function
   contentContainer.innerHTML = '';
 
-  if(screenType == 'images'){
-    initImagesPage();
+  if(screenType == 'images'){ // if screentype = images, change to initImagesPage
+    initImagesPage(); // calls function initImagesPage
   } else if(screenType == 'newImage'){
     newImagePage();
   } else if(screenType == 'galleries'){
@@ -68,7 +68,7 @@ function changeScreen(screenType){
   }
 }
 
-function initImagesPage(){
+function initImagesPage(){ // all content for Images page inside
   let content = document.createElement('h3'); // create content images
   content.id = "Images";
   content.className='images';
@@ -90,10 +90,9 @@ function initImagesPage(){
 function newImagePage() { // opens a "new Image" content page/screen
   let content = document.createElement('h3'); // create content images
   content.innerHTML = 'New image';
-  contentContainer.appendChild(content); // submitForm (); // annropar formuläret
+  contentContainer.appendChild(content);
 
-  createNewImageForm();
- // onclick();
+  createNewImageForm(); // calls function in addImageObject.js-file
 }
 
 function galleriesPage() { // opens a new "galleries" content page/screen
@@ -103,8 +102,6 @@ function galleriesPage() { // opens a new "galleries" content page/screen
 }
 
 changeScreen('images');
-
-
 
 // function imagesPage() { // opens a new "Image" content page/screen
 //
@@ -129,46 +126,38 @@ changeScreen('images');
 //     }
 //
 //     imageContainer();
-//
 // }
 
-
-
-
-
-
-function submitForm(){
-  //Create the form
-  var form = document.createElement('form');
-  form.id="myForm";
-  form.action="results.html";
-  form.method="GET";
-  document.body.appendChild(form);
-
-  //Create the div
-  var div1 = document.createElement("div");
-  div1.id="aDiv";
-  document.body.appendChild(div1);
-
-  //Place the input field
-  var input = document.createElement("input");
-  input.type = "url";
-  input.id = "urlinput";
-  input.placeholder = "Enter URL Here";
-  input.value = "";
-  document.getElementById("myForm").appendChild(input);
-  var url = document.getElementById("urlinput").value;
-
-  //Add submit button
-  var inputbutton = document.createElement("input");
-  inputbutton.id = "submitbutton";
-  inputbutton.type = "submit";
-  inputbutton.value = "submit";
-  document.getElementById("myForm").appendChild(inputbutton);
-  inputbutton.addEventListener("click", function() {});
-}
-
-
+// function submitForm(){
+//   //Create the form
+//   var form = document.createElement('form');
+//   form.id="myForm";
+//   form.action="results.html";
+//   form.method="GET";
+//   document.body.appendChild(form);
+//
+//   //Create the div
+//   var div1 = document.createElement("div");
+//   div1.id="aDiv";
+//   document.body.appendChild(div1);
+//
+//   //Place the input field
+//   var input = document.createElement("input");
+//   input.type = "url";
+//   input.id = "urlinput";
+//   input.placeholder = "Enter URL Here";
+//   input.value = "";
+//   document.getElementById("myForm").appendChild(input);
+//   var url = document.getElementById("urlinput").value;
+//
+//   //Add submit button
+//   var inputbutton = document.createElement("input");
+//   inputbutton.id = "submitbutton";
+//   inputbutton.type = "submit";
+//   inputbutton.value = "submit";
+//   document.getElementById("myForm").appendChild(inputbutton);
+//   inputbutton.addEventListener("click", function() {});
+// }
 
 // login button
 function loginBtn(){
@@ -179,15 +168,13 @@ function loginBtn(){
   document.body.appendChild(logInButton);
   logInButton.addEventListener('click', login, false)
 
-
   /**
    * @description shows the login form
    *
    */
+
   function login(e){
-
     var loginDiv = document.createElement('div');
-
     var logInForm = document.createElement('form');
     logInForm.id="loginform";
     logInForm.method='Get';
@@ -228,13 +215,9 @@ function loginBtn(){
     logInForm.appendChild(passwordInput); // password input
     logInForm.appendChild(loginSubmitButton); // submit button
 
-
-
     // ta bort eventlyssnaren så det bara blir ett formulär även om man trycker på knappen mer än en gång
     this.removeEventListener('click',login,false)
 
     }
-
   }
-
    loginBtn();
