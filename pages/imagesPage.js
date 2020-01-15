@@ -14,70 +14,90 @@ function initImagesPage(){ // all content for Images page inside
     img.id = "picture";
     imgContainer.appendChild(img); // append img to div container
     contentContainer.appendChild(imgContainer); // append div to body
+  
+    imgContainer.addEventListener('click', showModal);
   }
 }
 
-function createNewImageForm(){
-  var div1 = document.createElement("div");
-  div1.id="aDiv";
-  document.body.appendChild(div1);
-  
-  //Place the input field
-  var input = document.createElement("input");
-  input.type = "url";
-  input.id = "urlinput";
-  input.placeholder = "Enter URL Here";
-  input.value = "";
-  document.getElementById("myForm").appendChild(input);
-  var url = document.getElementById("urlinput").value;
-  
-  //Add submit button
-  var inputbutton = document.createElement("input");
-  inputbutton.id = "submitbutton";
-  inputbutton.type = "submit";
-  inputbutton.value = "submit";
-  document.getElementById("myForm").appendChild(inputbutton);
-  inputbutton.addEventListener("click", function() {});
+function showModal(event){
+  //create image modal element
+  var modalBackground = document.createElement("div");
+  modalBackground.id ="modal-background";
+  document.body.appendChild(modalBackground);
 
-    //Create the form
-    var form = document.createElement('form');
-    form.id="myForm";
-    form.action="results.html";
-    form.method="GET";
-    contentContainer.appendChild(form);
-  
-    //Create the div
-    var div1 = document.createElement("div");
-    div1.id="aDiv";
-    contentContainer.appendChild(div1);
-  
-    //Place the input field
-    var input = document.createElement("input");
-    input.type = "url";
-    input.id = "urlinput";
-    input.placeholder = "Enter URL Here";
-    input.value = "";
-    document.getElementById("myForm").appendChild(input);
-    var url = document.getElementById("urlinput").value;
-  
-    //Add submit button
-    var inputbutton = document.createElement("input");
-    inputbutton.id = "submitbutton";
-    inputbutton.type = "submit";
-    inputbutton.value = "submit";
-    document.getElementById("myForm").appendChild(inputbutton);  //This line doesnt work
-  
-    //create an empty array for images
-    imgObjects = [];
-  
-    function arrList(e){ // create function with an event
-      e.preventDefault(); // prevents the page from reloading when clicking on submit
-      var values = document.getElementById('urlinput'); //get input field
-      imgObjects.unshift({url: values.value});// push the input value to the beginning of an empty array (imgObjects)
-      console.log(imgObjects); // Console log the empty array to see if it works
-    }
-  
-    var submitButton = document.getElementById('submitbutton'); //get submitbutton
-    var submitForm = document.getElementById('myForm'); // get form
-    submitButton.addEventListener('click', arrList, false); // when clicking on submit, the arrList function should fire
+  //create the pop up background
+  var modalRef = document.createElement("div");
+  modalRef.id="modal";
+  modalBackground.appendChild(modalRef);
+
+  // create image element
+  var imageDiv = document.createElement("img");
+  imageDiv.id = "myImg";
+  imageDiv.setAttribute("src",event.target.src);
+  modalRef.appendChild(imageDiv);
+
+  //create close button
+  var clButton = document.createElement("h6");
+  clButton.id = "closeBtn";
+  clButton.textContent = "X";
+  modalBackground.appendChild(clButton);
+
+  //function to close the whole modal
+  clButton.addEventListener("click", function(){
+    console.log(this);
+    this.parentElement.style.display = "none";
+  })
+
+  var imgDelete = document.createElement("button");
+  imgDelete.id = "imageRemove";
+  imgDelete.textContent = "Remove image";
+  modalBackground.appendChild(imgDelete);
+
+  imgDelete.addEventListener("click", removeImage);
 }
+
+function removeImage(){
+  //other code is needed
+  //imageDiv.removeAttribute("src");
+  //-----------------------------------------------------------------------------
+  //Funktion som lägger bild i modalRef?
+  // img.onclick = function(){
+  //   modalRef.style.display = "block";
+  //   modalImg.src = this.src; //lägger URL i modalen?
+  // }
+}
+
+
+
+
+
+
+
+// Elvins kod
+
+// //Display image metadata in the same card where the images are located
+// function nameoftheimage() {
+// var nameparagraph = document.createElement('p');
+// nameparagraph.id = "imagename";
+// nameparagraph.innerText = imagename;
+// //.appendChild(nameparagraph);
+// };
+
+// function descriptionfortheimage() {
+// var descriptionparagraph = document.createElement('p');
+// descriptionparagraph.id = "imagedescription";
+// descriptionparagraph.innerText = imagedescription;
+// var imageslocation = document.querySelector(images);
+// imageslocation.appendChild(nameparagraph);
+// };
+
+// var nameparagraph = document.createElement('p');
+  // nameparagraph.id = "imagename";
+  // nameparagraph.innerText = imagetitle;
+
+  // var descriptionparagraph = document.createElement('p');
+  // descriptionparagraph.id = "imagedescription";
+  // descriptionparagraph.innerText = imagedescription;
+  
+  // var imageslocation = document.getElementsByClassName("img1");
+  // imageslocation.appendChild(nameparagraph);
