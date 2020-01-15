@@ -53,9 +53,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   list-style-type: none;
   display: block;
   position: absolute;
-
   z-index: 1;
-
 }
 
 /*
@@ -115,15 +113,19 @@ input {
   margin-left: 30px;
 }
 /******************************login form*****************************/
-#loginbutton{
+#loginbtn{
   height: 30px;
   width: 100px;
   background-color:rgb(235, 230, 220);
   font-size: medium;
   margin-left: 50px;
-  margin-top: 0;
+  margin-top: 0px;
   border-radius: 5px;
-
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+ 
+  
   }
   #loginform{
     height: 200px;
@@ -132,15 +134,43 @@ input {
     margin: 0px auto;
     width: 390px;
     height: 140px;
-    background-color: white;
+    background-color:white;
     border-bottom: 1px solid #FFA500;
     border-bottom-width: 30px;
+    position: relative;
+    z-index: 1;
+    
+    
   }
    #loginSubmitBtn {
 
     margin-top: 30px;
     margin-left: 30px;
+    border-radius: 3px;
+   
+    
+  } 
+  #account{
+   margin-left: 30px;
+   font-size: smaller;
+   color: lightskyblue;
+  
+  } 
+    
 
+ 
+ p#feedback {
+  text-align: right;
+  font-size: 10pt;
+  margin: 0px auto;
+  margin-top: 100px;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+  background-color:white;
+  width: 370px;
+ 
   }
 
 
