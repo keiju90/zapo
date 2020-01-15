@@ -12,7 +12,7 @@ modalBackground.appendChild(modalRef);
 // create image element
 var imageDiv = document.createElement("img");
 imageDiv.id = "myImg";
-imageDiv.src = "katt.jpg"; //Är detta rätt? Hur får vi in att det är rätt bild som kommer upp?
+imageDiv.setAttribute("src","https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492__480.jpg");
 modalRef.appendChild(imageDiv);
 
 //create close button
@@ -25,9 +25,23 @@ modalBackground.appendChild(clButton);
 clButton.addEventListener("click", function(){
     this.parentElement.style.display = "none";
 })
+
+//Kan man ta bort en bild med denna kod? Hur kopplar vi ihop detta med URL bilder?
+var imgDelete = document.createElement("button")
+imgDelete.id = "imageRemove";
+imgDelete.textContent = "Remove image";
+modalBackground.appendChild(imgDelete);
+
+imgDelete.addEventListener("click", function(){
+    imageDiv.removeAttribute("src");
+})
+
+
 //-----------------------------------------------------------------------------
 //Funktion som lägger bild i modalRef?
 img.onclick = function(){
-modal.style.display = "block";
-modalImg.src = this.src; 
+modalRef.style.display = "block";
+modalImg.src = this.src; //lägger URL i modalen?
 }
+
+
