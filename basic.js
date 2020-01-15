@@ -67,6 +67,7 @@ function changeScreen(screenType){ // change screens function
 }
 
 changeScreen('images');
+
 //--------------------------------------------------------------
 /**
  * @description with a click the login form is displayed.
