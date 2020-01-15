@@ -100,18 +100,39 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 #myForm {
   margin-left: 40%;
   margin-top: 0;
-  margin-right: 30%;
+  margin-right: 0%;
   width: 390px;
-  height: 140px;
+  height: 200px;
   background-color: white;
   border-bottom: 1px solid #FFA500;
   border-bottom-width: 30px;
+  padding-left: 0px;
 }
 
-input {
+#urlinput {
   margin-top: 30px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
+
+#submitbutton {
+  margin-left: 10px;
+}
+
+#descriptionsubmit {
+  margin-top: -40px;
+  margin-left: 250px;
+}
+
+#descriptioninput {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+#nameinput {
+  margin-top: 0px;
+  margin-left: 20px;
+}
+
 /******************************login form*****************************/
 #loginbtn{
   height: 30px;
@@ -178,3 +199,76 @@ input {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+
+/* Style the Image Used to Trigger the Modal */
+ #myImg {
+    max-width: 100%;
+    height: auto;
+    border: 7px solid white;
+}
+
+  /* The Modal (background) */
+  #modal-background {
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100vh; 
+    overflow: auto; /* to scroll if needed */
+    background-color: rgba(26, 26, 26, 0.6); /* grey w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  /* Size of the image */
+  #modal {
+    position: absolute;   
+    margin: auto;
+    display: block;
+    /*height: 60vh;
+    width: 900px;
+    min-width: 40%;*/
+}
+
+  /* Style the closebutton*/
+  #closeBtn{
+    z-index: 1;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 70px;
+    transition: 0.3s;
+}
+ /*The X (closebutton) get light grey when hover*/
+  #closeBtn:hover,
+  #closeBtn:focus {
+    color: rgb(156, 156, 156);
+}
+
+  #imageRemove{
+    color: lightgrey;
+    background-color: rgb(68, 68, 68);
+    font-size: 15px;
+    z-index: 1;
+    bottom: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+}
+
+  /* Add Animation - Zoom in the image to tell you can click it? */
+ #modal{
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
