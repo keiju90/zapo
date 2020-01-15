@@ -55,7 +55,6 @@ document.body.appendChild(contentContainer);
 // code above is basic UI
 
 
-
 function changeScreen(screenType){ // change screens function
   contentContainer.innerHTML = '';
 

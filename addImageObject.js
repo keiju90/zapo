@@ -1,5 +1,5 @@
 
-function createNewImageForm(){
+function createNewImageForm(){ // function to create new image
   //Create the form
   var form = document.createElement('form');
   form.id="myForm";
