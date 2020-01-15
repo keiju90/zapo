@@ -169,7 +169,7 @@ function login(e){
     emailInput.id='email';
     emailInput.setAttribute("type", "email");
     emailInput.placeholder='E-mail';
-    emailInput.maxLength='20';
+    emailInput.maxlength='20';
     
     var lineBreak = document.createElement('br');
     
