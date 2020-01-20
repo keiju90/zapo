@@ -45,9 +45,6 @@ listLinkThree.addEventListener("click", function(){
 }); // make text clickable and calls function
 
 let contentContainer = document.createElement('div'); // create header images
-//contentContainer.style.marginTop = '50px';
-//contentContainer.style.marginLeft = '300px'; //Flyttat styling till css-fil (Ann)
-//contentContainer.style.position = 'absolute';
 contentContainer.id = 'content-container';
 document.body.appendChild(contentContainer);
 
@@ -81,80 +78,72 @@ function loginBtn(){
   logInButton.addEventListener('click', login, false)
 
 
-  /**
-   * @description contains the entire login form
-   *
-   */
-  function login(){
+/**
+ * @description contains the entire login form
+ *
+ */
+function login(){
 
-    var loginDiv = document.createElement('div');
-    var closebtn = document.createElement('h6')
-    closebtn.id="closebButton";
-    closebtn.textContent='X'
-    closebtn.display='none'
-    closebtn.addEventListener('click',function(){
+  var loginDiv = document.createElement('div');
+  var closebtn = document.createElement('h6');
+  closebtn.id="closebButton";
+  closebtn.textContent='X';
+  closebtn.display='none';
+
+  closebtn.addEventListener('click',function(){
     this.parentElement.style.display='none';
+  })
+
+  var logInForm = document.createElement('form');
+  logInForm.id="loginform";
+  logInForm.method ='Get';
+  logInForm.action='#';
+
+  logInForm.addEventListener('submit',function(event){
+    event.preventDefault(); //prevents page reloading
+    var feedback ="";
+
+    var email = document.getElementById('email').value;
+
+    // indexof is a method. here i want to find out the position of @
+    var atpos = email.indexOf('@');
+
+    // lastindexof means the last dot if there are more
+    var atdot = email.lastIndexOf('.');
+
+    var password = document.getElementById('password').value;
+    var plength = password.length;
+
+    //this is a password for a pretend user to see if it works
+    var user1Password="aaaaaaa";
+
+    if(atpos < 1 || atdot < 1){
+      feedback +=" <strong style='color:#C00'>The e-mail address is not correct it is missing an @ or a dot. <br></strong>" ;
+      document.getElementById('email').style.borderColor='red';
+    } else if (email != atpos < 1 || atdot < 1) {
+      document.getElementById('email').style.borderColor='lightskyblue';
+    }
+
+    if(plength < 7 ){
+      feedback +=" <strong style='color:#C00'>Your password should be longer than 7 characters.</strong>" ;
+      document.getElementById('password').style.borderColor='red';
+    }
+
+    // om min atpos (@ position) är störren än atdock (. position))
+    // alltså om @ ligger efter . då har vi ett problem
+    else if (atpos > atdot){
+      feedback +=" <strong style='color:#C00'>Email address is not correct @ must be before last dot</strong>" ;
+    } else if(password != user1Password){
+      feedback +=" <strong style='color:#C00'>The user does not exist.</strong>" ;
+      console.log("hej");
+    } else {
+      document.getElementById('email').style.borderColor='lightskyblue';
+      document.getElementById('password').style.borderColor='lightskyblue';
+    }
+
+    document.getElementById('feedback').innerHTML = feedback;
+      return false;
     })
-    
-    var logInForm = document.createElement('form');
-    logInForm.id="loginform";
-    logInForm.method ='Get';
-    logInForm.action='#'
-    logInForm.addEventListener('submit',function(event){
-
-       event.preventDefault(); //prevents page reloading
-       var feedback ="";
-
-       var email = document.getElementById('email').value;
-
-      // indexof is a method. here i want to find out the position of @
-        var atpos = email.indexOf('@');
-
-      // lastindexof means the last dot if there are more
-        var atdot = email.lastIndexOf('.');
-
-        var password = document.getElementById('password').value;
-        var plength = password.length;
-
-        //this is a password for a pretend user to see if it works
-        var user1Password="aaaaaaa";
-
-
-        if(atpos < 1 || atdot < 1){
-          feedback +=" <strong style='color:#C00'>The e-mail address is not correct it is missing an @ or a dot. <br></strong>" ;
-          document.getElementById('email').style.borderColor='red';
-
-        }
-        else if (email != atpos < 1 || atdot < 1) {
-          document.getElementById('email').style.borderColor='lightskyblue';
-        }
-
-        if(plength < 7 ){
-          feedback +=" <strong style='color:#C00'>Your password should be longer than 7 characters.</strong>" ;
-          document.getElementById('password').style.borderColor='red';
-        }
-        // om min atpos (@ position) är störren än atdock (. position))
-        // alltså om @ ligger efter . då har vi ett problem
-        else if (atpos > atdot){
-          feedback +=" <strong style='color:#C00'>Email address is not correct @ must be before last dot</strong>" ;
-        }
-        else if(password != user1Password){
-          feedback +=" <strong style='color:#C00'>The user does not exist.</strong>" ;
-          console.log("hej");
-        }
-
-        else{
-          document.getElementById('email').style.borderColor='lightskyblue';
-          document.getElementById('password').style.borderColor='lightskyblue';
-
-
-        }
-
-        document.getElementById('feedback').innerHTML = feedback;
-         return false;
-
-
-     })
 
     // input field email
     var emailInput = document.createElement('input');
@@ -171,7 +160,6 @@ function loginBtn(){
     passwordInput.placeholder='password'
     passwordInput.setAttribute("type", "password");
 
-
     // creates the submit button inside the form
     var loginSubmitButton = document.createElement('button');
     loginSubmitButton.id='loginSubmitBtn';
@@ -186,13 +174,10 @@ function loginBtn(){
     let feedBack = document.createElement('p');
     feedBack.id='feedback';
 
-    //document.body.appendChild(feedBack); behövs ej
-
-
     document.body.appendChild(loginDiv); // Div
     loginDiv.appendChild(logInForm);    // form
     logInForm.appendChild(closebtn); // the X to close the input form window
-    logInForm.appendChild(feedBack); // put feedback to the log in form
+    logInForm.appendChild(feedBack);
     logInForm.appendChild(emailInput); // email input
     logInForm.appendChild(lineBreak);   // line break
     logInForm.appendChild(passwordInput); // password input

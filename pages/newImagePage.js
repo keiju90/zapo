@@ -17,23 +17,29 @@ function createNewImageForm(){
   form.method="GET";
   contentContainer.appendChild(form);
 
-  //Place the input field 
+  //Place the input field
   var input = document.createElement("input");
   input.type = "url";
   input.id = "urlinput";
   input.placeholder = "Enter URL Here";
   input.value = "";
   document.getElementById("myForm").appendChild(input);
-  
+
   //var url = document.getElementById("urlinput").value;
 
-  //Add submit button 
+  //Add submit button
   var inputbutton = document.createElement("input");
   inputbutton.id = "submitbutton";
   inputbutton.type = "submit";
   inputbutton.value = "Submit";
-  document.getElementById("myForm").appendChild(inputbutton);  
+  document.getElementById("myForm").appendChild(inputbutton);
   inputbutton.addEventListener("click", submitForm, function() {}); //deleting function() will remove all the orange stuff on the site.
+  inputbutton.addEventListener("click", clearForm);
+
+//Clears a form, clear image form
+  function clearForm() {
+    form.reset();
+  }
 
   //Input field for the name
   var name = document.createElement('input');
@@ -42,7 +48,6 @@ function createNewImageForm(){
   name.placeholder = "Write name here";
   name.value = "";
   document.getElementById("myForm").appendChild(name);
-
 
   //Add description metadata to image.
   var description = document.createElement('input');
@@ -55,11 +60,8 @@ function createNewImageForm(){
   imagedescription = document.getElementById("descriptioninput").value;
 }
 
-
 //Displaymetadata.js
 //Display image metadata in the same card where the images are located
-
-
 
 function submitForm(e) {
 

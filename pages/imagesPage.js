@@ -5,8 +5,8 @@ function initImagesPage(){ // all content for Images page inside
   content.innerHTML = 'Images';
   contentContainer.appendChild(content);
 
-  for(let i = 0; i < imgObjects.length; i++){
-    var imgContainer = document.createElement('div'); // create a div to store images in
+  for(let i = 0; i < imgObjects.length; i++){// as long as this statement is true, code below should run
+    var imgContainer = document.createElement('div'); // create a IMAGE DIV to store images in
     imgContainer.id="imgCont"; // div id imgCont, to style the div
 
     var img = document.createElement('img') //create image element
@@ -19,17 +19,49 @@ function initImagesPage(){ // all content for Images page inside
     desc.innerText = imgObjects[i].name;
     desc.id="descr";
     document.getElementById("imgCont").appendChild(desc);
-  
+
     var thename = document.createElement("p")
     thename.innerText = imgObjects[i].description;
     thename.id="imgname";
     document.getElementById("imgCont").appendChild(thename);
 
-  
-    imgContainer.addEventListener('click', showModal);
-  }
-}
+    var imgDelete = document.createElement("button"); // create REMOVE BUTTON
+    imgDelete.id = "imageRemove";
+    imgDelete.textContent = "Remove image";
 
+    imgContainer.appendChild(img); // append IMAGE ELEMENT to IMAGE DIV CONTAINER
+    imgContainer.appendChild(imgDelete); // append REMOVE BUTTON to IMAGE DIV CONTAINER
+    contentContainer.appendChild(imgContainer); // append IMAGE DIV CONTAINER to CONTENT-CONTAINER
+
+    img.addEventListener('click', showModal); // when IMAGE clicked, it pops-up
+    //SOFIA, FÅTT ÄNDRA IMGCONTAINER TILL IMG FÖR ANNARS FUNGERAR INTE REMOVEIMAGE KNAPPEN PGA eventBUBBLING
+
+    //set up eventlisteners to call ITEMDONE on click
+    imgDelete.addEventListener('click', itemDone, false); //when clicking on REMOVE BUTTON, function ITEMDONE fires
+
+
+  } // LOOP ENDS HERE, SOFIA
+  }// INITIMAGESPAGE ENDS HERE, SOFIA
+
+  function itemDone(e) { //remove image
+
+
+    var target, elParent, elGrandparent;
+    target = e.target; // calls function GETTARGET
+    elParent = target.parentNode;
+    elGrandparent = target.parentNode.parentNode;
+
+    console.log(target);
+    console.log(elParent);
+    console.log(elGrandparent);
+    
+    elGrandparent.removeChild(elParent);
+    console.log(elGrandparent);
+    //prevent the link from taking you elsewhere
+    e.preventDefault();
+  }
+
+//POPUP MODAL
 function showModal(event){
   //create image modal element
   var modalBackground = document.createElement("div");
@@ -58,58 +90,4 @@ function showModal(event){
     console.log(this);
     this.parentElement.style.display = "none";
   })
-
-  var imgDelete = document.createElement("button");
-  imgDelete.id = "imageRemove";
-  imgDelete.textContent = "Remove image";
-  modalBackground.appendChild(imgDelete);
-
-  imgDelete.addEventListener("click", removeImage);
 }
-
-function removeImage(){
-  //other code is needed
-  //imageDiv.removeAttribute("src");
-  
-  //-----------------------------------------------------------------------------
-  //Funktion som lägger bild i modalRef?
-  // img.onclick = function(){
-  //   modalRef.style.display = "block";
-  //   modalImg.src = this.src; //lägger URL i modalen?
-  // }
-}
-
-
-
-
-
-
-
-// Elvins kod
-
-// //Display image metadata in the same card where the images are located
-// function nameoftheimage() {
-// var nameparagraph = document.createElement('p');
-// nameparagraph.id = "imagename";
-// nameparagraph.innerText = imagename;
-// //.appendChild(nameparagraph);
-// };
-
-// function descriptionfortheimage() {
-// var descriptionparagraph = document.createElement('p');
-// descriptionparagraph.id = "imagedescription";
-// descriptionparagraph.innerText = imagedescription;
-// var imageslocation = document.querySelector(images);
-// imageslocation.appendChild(nameparagraph);
-// };
-
-// var nameparagraph = document.createElement('p');
-  // nameparagraph.id = "imagename";
-  // nameparagraph.innerText = imagetitle;
-
-  // var descriptionparagraph = document.createElement('p');
-  // descriptionparagraph.id = "imagedescription";
-  // descriptionparagraph.innerText = imagedescription;
-  
-  // var imageslocation = document.getElementsByClassName("img1");
-  // imageslocation.appendChild(nameparagraph);
