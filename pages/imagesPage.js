@@ -9,13 +9,25 @@ function initImagesPage(){ // all content for Images page inside
     var imgContainer = document.createElement('div'); // create a IMAGE DIV to store images in
     imgContainer.id="imgCont"; // div id imgCont, to style the div
 
+    var img = document.createElement('img') //create image element
+    img.src = imgObjects[i].url; // image source from array above
+    img.id = "picture";
+    imgContainer.appendChild(img); // append img to div container
+    contentContainer.appendChild(imgContainer); // append div to body
+
+    var desc = document.createElement("p")
+    desc.innerText = imgObjects[i].name;
+    desc.id="descr";
+    document.getElementById("imgCont").appendChild(desc);
+
+    var thename = document.createElement("p")
+    thename.innerText = imgObjects[i].description;
+    thename.id="imgname";
+    document.getElementById("imgCont").appendChild(thename);
+
     var imgDelete = document.createElement("button"); // create REMOVE BUTTON
     imgDelete.id = "imageRemove";
     imgDelete.textContent = "Remove image";
-
-    var img = document.createElement('img') //create IMAGE ELEMENT
-    img.src = imgObjects[i].url; // image source from the array list
-    img.id = "picture";
 
     imgContainer.appendChild(img); // append IMAGE ELEMENT to IMAGE DIV CONTAINER
     imgContainer.appendChild(imgDelete); // append REMOVE BUTTON to IMAGE DIV CONTAINER
@@ -128,12 +140,6 @@ function removeImage(){
   // var descriptionparagraph = document.createElement('p');
   // descriptionparagraph.id = "imagedescription";
   // descriptionparagraph.innerText = imagedescription;
-<<<<<<< HEAD
 
   // var imageslocation = document.getElementsByClassName("img1");
   // imageslocation.appendChild(nameparagraph);
-=======
-  
-  // var imageslocation = document.getElementsByClassName("img1");
-  // imageslocation.appendChild(nameparagraph);
->>>>>>> 01d9495b858d2af29e9a144ec0b6497475069d32
