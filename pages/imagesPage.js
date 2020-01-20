@@ -36,28 +36,30 @@ function initImagesPage(){ // all content for Images page inside
     img.addEventListener('click', showModal); // when IMAGE clicked, it pops-up
     //SOFIA, FÅTT ÄNDRA IMGCONTAINER TILL IMG FÖR ANNARS FUNGERAR INTE REMOVEIMAGE KNAPPEN PGA eventBUBBLING
 
-    //SOFIAS KOD, TA BORT BILDER NÄR MAN CLICKAR REMOVE IMAGE BUTTON
-    function getTarget(e) {
-      return e.target;
-    }
-    function itemDone(e) { //remove image
-      var target, elParent, elGrandparent;
-      target = getTarget(e); // calls function GETTARGET
-      elParent = target.parentNode;
-      elGrandparent = target.parentNode.parentNode;
-      elGrandparent.removeChild(elParent);
-      console.log(elGrandparent);
-      //prevent the link from taking you elsewhere
-      e.preventDefault();
-    }
     //set up eventlisteners to call ITEMDONE on click
-    var imgDelete = document.getElementById("imageRemove"); // get REMOVE BUTTON
-    imgDelete.addEventListener('click', function(e) { //when clicking on REMOVE BUTTON, function ITEMDONE fires
-    itemDone(e);
-    }, false);
+    imgDelete.addEventListener('click', itemDone, false); //when clicking on REMOVE BUTTON, function ITEMDONE fires
+
 
   } // LOOP ENDS HERE, SOFIA
   }// INITIMAGESPAGE ENDS HERE, SOFIA
+
+  function itemDone(e) { //remove image
+
+
+    var target, elParent, elGrandparent;
+    target = e.target; // calls function GETTARGET
+    elParent = target.parentNode;
+    elGrandparent = target.parentNode.parentNode;
+
+    console.log(target);
+    console.log(elParent);
+    console.log(elGrandparent);
+    
+    elGrandparent.removeChild(elParent);
+    console.log(elGrandparent);
+    //prevent the link from taking you elsewhere
+    e.preventDefault();
+  }
 
 //POPUP MODAL
 function showModal(event){
@@ -88,58 +90,4 @@ function showModal(event){
     console.log(this);
     this.parentElement.style.display = "none";
   })
-
-  var imgDelete = document.createElement("button");
-  imgDelete.id = "imageRemove";
-  imgDelete.textContent = "Remove image";
-  modalBackground.appendChild(imgDelete);
-
-  imgDelete.addEventListener("click", removeImage);
 }
-
-function removeImage(){
-  //other code is needed
-  //imageDiv.removeAttribute("src");
-  
-  //-----------------------------------------------------------------------------
-  //Funktion som lägger bild i modalRef?
-  // img.onclick = function(){
-  //   modalRef.style.display = "block";
-  //   modalImg.src = this.src; //lägger URL i modalen?
-  // }
-}
-
-
-
-
-
-
-
-// Elvins kod
-
-// //Display image metadata in the same card where the images are located
-// function nameoftheimage() {
-// var nameparagraph = document.createElement('p');
-// nameparagraph.id = "imagename";
-// nameparagraph.innerText = imagename;
-// //.appendChild(nameparagraph);
-// };
-
-// function descriptionfortheimage() {
-// var descriptionparagraph = document.createElement('p');
-// descriptionparagraph.id = "imagedescription";
-// descriptionparagraph.innerText = imagedescription;
-// var imageslocation = document.querySelector(images);
-// imageslocation.appendChild(nameparagraph);
-// };
-
-// var nameparagraph = document.createElement('p');
-  // nameparagraph.id = "imagename";
-  // nameparagraph.innerText = imagetitle;
-
-  // var descriptionparagraph = document.createElement('p');
-  // descriptionparagraph.id = "imagedescription";
-  // descriptionparagraph.innerText = imagedescription;
-
-  // var imageslocation = document.getElementsByClassName("img1");
-  // imageslocation.appendChild(nameparagraph);
