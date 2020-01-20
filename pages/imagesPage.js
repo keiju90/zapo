@@ -59,6 +59,7 @@ function showModal(event){
 function removeImage(){
   //other code is needed
   //imageDiv.removeAttribute("src");
+  
   //-----------------------------------------------------------------------------
   //Funktion som lägger bild i modalRef?
   // img.onclick = function(){

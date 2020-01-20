@@ -1,16 +1,24 @@
 
 body {
-  margin: 0px;
-  padding: 0px;
-  background-color: #34495e;
+ margin: 0px;
+ padding: 0px;
+ background-color: #4a5158;
 }
 
-.images{
-font-size: 25px;
+.images{ /*This is the headtitle of imagePage.js, a h3*/
+ position: absolute;
+ font-size: 25px;
  color:white;
- margin-left:300px ;
-padding: 40px;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ padding: 40px;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h3{
+ position: absolute;
+ font-size: 25px;
+ color:white;
+ padding: 40px;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .header {
@@ -18,7 +26,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: rgb(238, 195, 4);
   position: fixed;
   top: 0px;
-  z-index: 1;
+  z-index: 7;
   height: 50px;
 }
 
@@ -33,13 +41,12 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 .sidenav {
   height: 100%;
-  width: 300px;
+  width: 270px;
   position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(241, 134, 11, 0.911);
-
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .sidenavLinks {
@@ -54,53 +61,77 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: block;
   position: absolute;
   z-index: 1;
+  text-align: center;
 }
 
-/*
-.sidenav a:hover {
-  color: #f1f1f1;
-}  */
-#loginbutton{
+ #loginbutton{ 
   position: absolute;
+  top: 10px;
   z-index: 2;
   height: 40px;
   width: 140px;
   font-size: medium;
   margin-left: 50px;
-  /* background-color: rgb(238, 195, 4); */
   background-color: white;
- border: 1px solid black;
+  border: 1px solid black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/********************************* Images on imagepage ************************************/
+
+#content-container{ /*The content container on all pages set to flex box.*/
+  position: absolute;
+  top: 50px;
+  left: 270px;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow: auto;
 }
 
 #imgCont{
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-
-  /* height: 200px;
-  width: 500px;
   position: relative;
-  z-index: 1;
-  margin-left: 350px; */
-  }
+  margin-top: 120px;
+  margin-left: 40px;
+  border: 2px solid white;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
 
 #picture {
-  /* padding: 10px;
-  float:left; */
-  width: 200px;
-  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%); /* Makes all thumnails the same size*/
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+  
 }
+/*#imgCont:hover,
+#imgCont:focus {
+  color: rgb(92, 92, 92);
+}
+#picture:hover{ 
+  color: black;
+}*/
+
+/*............................................................................................*/
 
 .main {
   margin-left: 160px;
   font-size: 28px;
   padding: 0px 10px;
 }
-/***************************** submit form *******************************/
-#myForm {
-  margin-left: 40%;
-  margin-top: 0;
-  margin-right: 0%;
+/***************************** submit image form *******************************/
+
+#myForm { /*The form for input of image URL on NewImagePage */
+  position: fixed;
+  margin-top: 100px;
+  margin-left: 240px;
   width: 390px;
   height: 200px;
   background-color: white;
@@ -109,166 +140,193 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding-left: 0px;
 }
 
-#urlinput {
+#urlinput { /* Input field for image URL*/
+  position: fixed;
   margin-top: 30px;
   margin-left: 20px;
+  width: 340px;
 }
 
-#submitbutton {
-  margin-left: 10px;
+#submitbutton { /* Button to submit om New image form*/
+  position: fixed;
+  margin-top: 170px;
+  margin-left: 305px;
 }
 
-#descriptionsubmit {
-  margin-top: -40px;
+#descriptionsubmit { 
+  position: fixed;
+  margin-top: 50px;
   margin-left: 250px;
 }
 
-#descriptioninput {
-  margin-top: 20px;
-  margin-left: 10px;
+#descriptioninput { /* Input field for description of image*/
+  position: fixed;
+  margin-top: 110px;
+  margin-left: 20px;
+  width: 340px;
 }
 
-#nameinput {
-  margin-top: 0px;
+#nameinput { /* Input field for name of the image*/
+  position: fixed;
+  margin-top: 70px;
   margin-left: 20px;
+  width: 340px;
 }
 
 /******************************login form*****************************/
-#loginbtn{
+#loginbtn{ /* Login button placed in header */
+  position: fixed; /* Make the log in button stay in place */
   height: 30px;
   width: 100px;
   background-color:rgb(235, 230, 220);
   font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
   margin-left: 50px;
-  margin-top: 0px;
+  margin-top: 10px;
   border-radius: 5px;
-  position: relative;
-  z-index: 1;
+  z-index: 10;
   border-radius: 3px;
- 
-  
-  }
-  #loginform{
-    height: 200px;
-    width: 350px;
-    margin-top: 100px;
-    margin: 0px auto;
-    width: 390px;
-    height: 140px;
-    background-color:white;
-    border-bottom: 1px solid #FFA500;
-    border-bottom-width: 30px;
-    position: relative;
-    z-index: 1;
-    
-    
-  }
-   #loginSubmitBtn {
+}
 
-    margin-top: 30px;
-    margin-left: 30px;
-    border-radius: 3px;
-   
-    
-  } 
-  #account{
-   margin-left: 30px;
-   font-size: smaller;
-   color: lightskyblue;
-  
-  } 
-    
+#loginform{
+  height: 180px;
+  width: 390px;
+  margin-top: 150px;
+  margin-left: 510px;
+  background-color:white;
+  border-bottom: 1px solid #FFA500;
+  border-bottom-width: 30px;
+  position: fixed;
+  z-index: 1; 
+}
 
- 
- p#feedback {
+#loginSubmitBtn { /* The submit button placed in the log in form*/
+  position :fixed;
+  margin-top: 130px;
+  margin-left: 300px;
+  border-radius: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+} 
+
+#account{
+  position: fixed;
+  margin-top: 135px;
+  margin-left: 30px;
+  font-size: smaller;
+  color: rgb(116, 178, 216);
+  font-family: Arial, Helvetica, sans-serif;
+} 
+    
+p#feedback {
+  position: fixed;
   text-align: right;
-  font-size: 10pt;
+  font-size: 10px;
   margin: 0px auto;
   margin-top: 100px;
   text-align: center;
   padding: 10px;
-  position: relative;
   z-index: 2;
-  background-color:white;
   width: 370px;
- 
-  }
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+ #closebButton{ /* Close button (X) inside the log in form*/
+  position: fixed;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  margin-top: 3px;
+  margin-left: 355px;
+  line-height: 20px;
+  padding: 10px;
+  transition: 0.3s;  
+}
+#closebButton:hover{
+  color: lightskyblue;
+}
+
+#email{
+  position:fixed;
+  margin-left: 30px;
+  margin-top: 40px;
+  width: 200px;
+}
+
+#password{
+  position: fixed;
+  margin-left: 30px;
+  margin-top: 60px;
+  width: 200px;
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
-
-/* Style the Image Used to Trigger the Modal */
- #myImg {
-    max-width: 100%;
-    height: auto;
-    border: 7px solid white;
+/********************************** Pop up modal when pressing an image ***********************/
+#myImg { /* CSS for the pop up modal*/
+  max-width: 100%;
+  height: auto;
+  border: 7px solid white;
 }
 
-  /* The Modal (background) */
-  #modal-background {
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100vh; 
-    overflow: auto; /* to scroll if needed */
-    background-color: rgba(26, 26, 26, 0.6); /* grey w/ opacity */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#modal-background {
+  position: fixed;
+  z-index: 100; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; /* to scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* grey w/ opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-  
-  /* Size of the image */
-  #modal {
-    position: absolute;   
-    margin: auto;
-    display: block;
-    /*height: 60vh;
-    width: 900px;
-    min-width: 40%;*/
+    
+#modal { 
+  position: absolute;   
+  display: block;
 }
 
-  /* Style the closebutton*/
-  #closeBtn{
-    z-index: 1;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 20px;
-    padding: 10px;
-    position: absolute;
-    top: 10px;
-    right: 70px;
-    transition: 0.3s;
-}
- /*The X (closebutton) get light grey when hover*/
-  #closeBtn:hover,
-  #closeBtn:focus {
-    color: rgb(156, 156, 156);
+#modal{ /* Add Animation */ 
+  animation-name: zoom;
+  animation-duration: 0.6s;
 }
 
-  #imageRemove{
-    color: lightgrey;
-    background-color: rgb(68, 68, 68);
-    font-size: 15px;
-    z-index: 1;
-    bottom: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
+#closeBtn{ /*closebutton to close (X) the image modal pop up*/
+  z-index: 1;
+  color: rgb(223, 223, 223);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  transition: 0.3s;
 }
 
-  /* Add Animation - Zoom in the image to tell you can click it? */
- #modal{
-    animation-name: zoom;
-    animation-duration: 0.6s;
-  }
-  
-  @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
-  }
-  
+#closeBtn:hover, /*The X (closebutton) get dark grey when hover*/
+#closeBtn:focus {
+  color: rgb(92, 92, 92);
+}
+
+/*************************************************************************/
+
+#imageRemove{ /*Style for Remove button to remove images from ImagePage*/ 
+  color: rgb(43, 43, 43); 
+  background-color: rgb(255, 255, 255);
+  font-size: 15px;
+  z-index: 1;
+  bottom: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
