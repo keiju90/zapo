@@ -77,7 +77,31 @@ function showModal(event){
     this.parentElement.style.display = "none";
   })
 
+  var imgDelete = document.createElement("button");
+  imgDelete.id = "imageRemove";
+  imgDelete.textContent = "Remove image";
+  modalBackground.appendChild(imgDelete);
+
+  imgDelete.addEventListener("click", removeImage);
 }
+
+function removeImage(){
+  //other code is needed
+  //imageDiv.removeAttribute("src");
+  
+  //-----------------------------------------------------------------------------
+  //Funktion som lägger bild i modalRef?
+  // img.onclick = function(){
+  //   modalRef.style.display = "block";
+  //   modalImg.src = this.src; //lägger URL i modalen?
+  // }
+}
+
+
+
+
+
+
 
 // Elvins kod
 
@@ -104,6 +128,12 @@ function showModal(event){
   // var descriptionparagraph = document.createElement('p');
   // descriptionparagraph.id = "imagedescription";
   // descriptionparagraph.innerText = imagedescription;
+<<<<<<< HEAD
 
   // var imageslocation = document.getElementsByClassName("img1");
   // imageslocation.appendChild(nameparagraph);
+=======
+  
+  // var imageslocation = document.getElementsByClassName("img1");
+  // imageslocation.appendChild(nameparagraph);
+>>>>>>> 01d9495b858d2af29e9a144ec0b6497475069d32

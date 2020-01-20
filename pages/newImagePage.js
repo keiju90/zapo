@@ -67,13 +67,15 @@ function submitForm(e) {
 
   e.preventDefault(); // prevents the page from reloading when clicking on submit
   var values = document.getElementById('urlinput'); //get input field
-
+  var valuetwo = document.getElementById("nameinput");
+  var valuethree = document.getElementById("descriptioninput");
+  
   let newImgObj = {
     url: values.value,
-    // name: '',
-    // description: '',
+    name: valuetwo.value,
+    description: valuethree.value,
   }
-
+  
   imgObjects.unshift(newImgObj);// push the input value to the beginning of an empty array (imgObjects)
   console.log(imgObjects); // Console log the empty array to see if it works
 };
