@@ -45,9 +45,6 @@ listLinkThree.addEventListener("click", function(){
 }); // make text clickable and calls function
 
 let contentContainer = document.createElement('div'); // create header images
-contentContainer.style.marginTop = '50px';
-contentContainer.style.marginLeft = '300px';
-contentContainer.style.position = 'absolute';
 contentContainer.id = 'content-container';
 document.body.appendChild(contentContainer);
 
@@ -66,7 +63,7 @@ function changeScreen(screenType){ // change screens function
   }
 }
 
-changeScreen('images'); 
+changeScreen('images');
 
 //--------------------------------------------------------------
 /**
@@ -89,11 +86,19 @@ function loginBtn(){
 
     var loginDiv = document.createElement('div');
 
+    var closebtn = document.createElement('h6')
+    closebtn.id="closebButton";
+    closebtn.textContent='X'
+    closebtn.display='none'
+    closebtn.addEventListener('click',function(){
+    this.parentElement.style.display='none';
+    })
+
     var logInForm = document.createElement('form');
-     logInForm.id="loginform";
-     logInForm.method ='Get';
-     logInForm.action='#'
-     logInForm.addEventListener('submit',function(event){
+    logInForm.id="loginform";
+    logInForm.method ='Get';
+    logInForm.action='#'
+    logInForm.addEventListener('submit',function(event){
 
 
        event.preventDefault(); //prevents page reloading
@@ -180,11 +185,12 @@ function loginBtn(){
     let feedBack = document.createElement('p');
     feedBack.id='feedback';
 
-    document.body.appendChild(feedBack);
 
 
     document.body.appendChild(loginDiv); // Div
     loginDiv.appendChild(logInForm);    // form
+    logInForm.appendChild(closebtn); // the X to close the input form window
+    loginForm.appendChild(feedBack);
     logInForm.appendChild(emailInput); // email input
     logInForm.appendChild(lineBreak);   // line break
     logInForm.appendChild(passwordInput); // password input
