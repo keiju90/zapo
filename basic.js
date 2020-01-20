@@ -66,7 +66,7 @@ function changeScreen(screenType){ // change screens function
   }
 }
 
-changeScreen('images');
+changeScreen('images'); 
 
 //--------------------------------------------------------------
 /**
