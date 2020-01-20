@@ -14,6 +14,17 @@ function initImagesPage(){ // all content for Images page inside
     img.id = "picture";
     imgContainer.appendChild(img); // append img to div container
     contentContainer.appendChild(imgContainer); // append div to body
+
+    var desc = document.createElement("p")
+    desc.innerText = imgObjects[i].name;
+    desc.id="descr";
+    document.getElementById("imgCont").appendChild(desc);
+  
+    var thename = document.createElement("p")
+    thename.innerText = imgObjects[i].description;
+    thename.id="imgname";
+    document.getElementById("imgCont").appendChild(thename);
+
   
     imgContainer.addEventListener('click', showModal);
   }
