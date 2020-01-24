@@ -36,12 +36,12 @@ function initImagesPage() { // all content for Imagespage inside this container
             img.addEventListener('click', showModal); // when IMAGE clicked, it pops-up
             //set up eventlisteners to call ITEMDELETE on click
             imgDelete.addEventListener('click', itemDelete, false); //when clicking on REMOVE BUTTON, function ITEMDELETE fires
-        } // LOOP ENDS HERE, SOFIA
-    } // INITIMAGESPAGE ENDS HERE, SOFIA
+        } // LOOP ENDS HERE
+    } // INITIMAGESPAGE ENDS HERE
 
 function itemDelete(e) { // function to remove image
     var target, elParent, elGrandparent;
-    target = e.target; 
+    target = e.target;
     elParent = target.parentNode;
     elGrandparent = target.parentNode.parentNode;
 
