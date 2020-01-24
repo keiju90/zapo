@@ -20,6 +20,7 @@ document.body.appendChild(list);
 list.className='sidenavLinks';
 //---------------------------------------
 let listLinkOne = document.createElement('li') // list items, New Image
+listLinkOne.id = "lank1";
 listLinkOne.textContent="New image";
 list.appendChild(listLinkOne);
 listLinkOne.style.padding='20px';
@@ -28,6 +29,7 @@ listLinkOne.addEventListener("click", function(){
 }); // make text clickable and calls function
 
 let listLinkTwo = document.createElement('li') // list items, Images
+listLinkTwo.id = "lank2";
 listLinkTwo.textContent="Images";
 list.appendChild(listLinkTwo);
 listLinkTwo.style.padding='20px';
@@ -37,6 +39,7 @@ listLinkTwo.addEventListener("click", function(){
 }); // make text clickable and calls function
 
 let listLinkThree = document.createElement('li') // list items, Galleries
+listLinkThree.id = "lank3";
 listLinkThree.textContent="Galleries"
 list.appendChild(listLinkThree);
 listLinkThree.style.padding='20px';

@@ -64,6 +64,18 @@ body {
     text-align: center;
   }
    
+  #lank1:hover{
+    color: rgb(201, 201, 201);
+  }
+
+  #lank2:hover{
+    color: rgb(201, 201, 201);
+  }
+
+  #lank3:hover{
+    color: rgb(201, 201, 201);
+  }
+
   #loginbutton{
     position: absolute;
     top: 10px;
@@ -94,12 +106,14 @@ body {
     position: relative;
     margin-top: 120px;
     margin-left: 40px;
-    border: 2px solid white;
+    border: 12px solid rgb(255, 255, 255);
     width: 200px;
     height: 200px;
     overflow: hidden;
+    background-color: white;
+    border-bottom-width: 60px; /* Put the white box under picture to make it look like polaroid-picture */
   }
-   
+  
   #picture {
     position: absolute;
     left: 50%;
@@ -109,16 +123,8 @@ body {
     -webkit-transform: translate(-50%,-50%); /* Makes all thumnails the same size*/
         -ms-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
-   
   }
-  /*#imgCont:hover,
-  #imgCont:focus {
-    color: rgb(92, 92, 92);
-  }
-  #picture:hover{
-    color: black;
-  }*/
-   
+
   /*............................................................................................*/
    
   .main {
@@ -172,20 +178,44 @@ body {
     margin-left: 20px;
     width: 340px;
   }
-   
+
+  #imgname{ /* Name of the image on imgesPages*/
+    position: fixed;
+    text-align: center;
+    margin-top: 210px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(34, 33, 33);
+    font-size: 15px;
+  }
+
+  #descr{ /* Description of image on imagesPages */
+   position: fixed;
+   text-align: center;
+   margin-top: 230px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   color: rgb(34, 34, 34);
+   font-size: 10px;
+  }
+
   /******************************login form*****************************/
   #loginbtn{ /* Login button placed in header */
     position: fixed; /* Make the log in button stay in place */
     height: 30px;
     width: 100px;
+    color: rgb(49, 49, 49);
     background-color:rgb(235, 230, 220);
     font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 50px;
+    margin-left: 72px;
     margin-top: 10px;
     border-radius: 5px;
     z-index: 10;
     border-radius: 3px;
+    box-shadow: 4px 4px 8px #4b4b4b;
+  }
+  
+  #loginbtn:hover{
+    background-color: rgb(202, 202, 202);
   }
    
   #loginform{
@@ -305,7 +335,7 @@ body {
     padding: 10px;
     position: absolute;
     top: 10px;
-    right: 70px;
+    right: 60px;
     transition: 0.3s;
   }
    
@@ -319,9 +349,10 @@ body {
   #imageRemove{ /*Style for Remove button to remove images from ImagePage*/
     color: rgb(43, 43, 43);
     background-color: rgb(255, 255, 255);
-    font-size: 15px;
+    font-size: 7px;
     z-index: 1;
-    bottom: 60px;
+    bottom: 5px;
+    left: 125px;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
   }
